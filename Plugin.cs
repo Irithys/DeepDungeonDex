@@ -22,7 +22,7 @@ namespace DeepDungeonDex
         private Framework _framework;
         private CommandManager _commands;
 
-        public string Name => "DeepDungeonDex";
+        public string Name => "DeepDungeonDex-CN";
 
         public Plugin(
             DalamudPluginInterface pluginInterface,

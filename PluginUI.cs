@@ -80,63 +80,63 @@ namespace DeepDungeonDex
             ImGui.SetNextWindowSizeConstraints(new Vector2(250, 0), new Vector2(9001, 9001));
             ImGui.SetNextWindowBgAlpha(config.Opacity);
             ImGui.Begin("cool strati window", flags);
-            ImGui.Text("Name:\n"+TargetData.Name);
+            ImGui.Text("名称:\n"+TargetData.Name);
             ImGui.NewLine();
             ImGui.Columns(3, null, false);
-            ImGui.Text("Aggro Type:\n");
+            ImGui.Text("仇恨类型:\n");
             ImGui.Text(mobData.Aggro.ToString());
             ImGui.NextColumn();
-            ImGui.Text("Threat:\n");
+            ImGui.Text("威胁:\n");
             switch (mobData.Threat)
             {
                 case DataHandler.MobData.ThreatLevel.Easy:
                     ImGui.PushStyleColor(ImGuiCol.Text, 0xFF00FF00);
-                    ImGui.Text("Easy");
+                    ImGui.Text("容易");
                     ImGui.PopStyleColor();
                     break;
                 case DataHandler.MobData.ThreatLevel.Caution:
                     ImGui.PushStyleColor(ImGuiCol.Text, 0xFF00FFFF);
-                    ImGui.Text("Caution");
+                    ImGui.Text("警告");
                     ImGui.PopStyleColor();
                     break;
                 case DataHandler.MobData.ThreatLevel.Dangerous:
                     ImGui.PushStyleColor(ImGuiCol.Text, 0xFF0000FF);
-                    ImGui.Text("Dangerous");
+                    ImGui.Text("危险");
                     ImGui.PopStyleColor();
                     break;
                 case DataHandler.MobData.ThreatLevel.Vicious:
                     ImGui.PushStyleColor(ImGuiCol.Text, 0xFFFF00FF);
-                    ImGui.Text("Vicious");
+                    ImGui.Text("地狱");
                     ImGui.PopStyleColor();
                     break;
                 default:
-                    ImGui.Text("Undefined");
+                    ImGui.Text("不知道");
                     break;
             }
             ImGui.NextColumn();
             if (!config.HideBasedOnJob || cjstun[cjid])
             {
-                PrintSingleVuln(mobData.Vuln.CanStun, "Stun");    
+                PrintSingleVuln(mobData.Vuln.CanStun, "眩晕");    
             }
             if (!config.HideBasedOnJob || cjsleep[cjid])
             {
-                PrintSingleVuln(mobData.Vuln.CanSleep, "Sleep");    
+                PrintSingleVuln(mobData.Vuln.CanSleep, "睡眠");    
             }
             if (!config.HideBasedOnJob || cjbind[cjid])
             {
-                PrintSingleVuln(mobData.Vuln.CanBind, "Bind");
+                PrintSingleVuln(mobData.Vuln.CanBind, "止步");
             }
             if (!config.HideBasedOnJob || cjheavy[cjid])
             {
-                PrintSingleVuln(mobData.Vuln.CanHeavy, "Heavy");   
+                PrintSingleVuln(mobData.Vuln.CanHeavy, "加重");   
             }
             if (!config.HideBasedOnJob || cjslow[cjid])
             {
-                PrintSingleVuln(mobData.Vuln.CanSlow, "Slow");   
+                PrintSingleVuln(mobData.Vuln.CanSlow, "慢走");   
             }
             if (!(TargetData.NameID >= 7262 && TargetData.NameID <= 7610))
             {
-                PrintSingleVuln(mobData.Vuln.IsUndead, "Undead");
+                PrintSingleVuln(mobData.Vuln.IsUndead, "亡灵");
             }
             ImGui.NextColumn();
             ImGui.Columns(1);
