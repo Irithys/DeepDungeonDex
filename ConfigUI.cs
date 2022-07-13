@@ -29,25 +29,25 @@ namespace DeepDungeonDex
                 return;
             var flags = ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.AlwaysAutoResize;
             ImGui.SetNextWindowSizeConstraints(new Vector2(250, 100), new Vector2(400, 300));
-            ImGui.Begin("config", flags);
-            if (ImGui.SliderFloat("Opacity", ref opacity, 0.0f, 1.0f))
+            ImGui.Begin("配置", flags);
+            if (ImGui.SliderFloat("不透明度", ref opacity, 0.0f, 1.0f))
             {
                 config.Opacity = opacity;
             }
-            if (ImGui.Checkbox("Enable clickthrough", ref isClickthrough))
+            if (ImGui.Checkbox("启用点击", ref isClickthrough))
             {
                 config.IsClickthrough = isClickthrough;
             }
-            if (ImGui.Checkbox("Hide vulnerabilities that can't be inflicted", ref HideRedVulns))
+            if (ImGui.Checkbox("隐藏无法造成的控制", ref HideRedVulns))
             {
                 config.HideRedVulns = HideRedVulns;
             }
-            if (ImGui.Checkbox("Hide vulnerabilities based on current class/job", ref HideBasedOnJob))
+            if (ImGui.Checkbox("基于当前职业隐藏控制", ref HideBasedOnJob))
             {
                 config.HideBasedOnJob = HideBasedOnJob;
             }
             ImGui.NewLine();
-            if (ImGui.Button("Save"))
+            if (ImGui.Button("保存"))
             {
                 IsVisible = false;
                 config.Save();
